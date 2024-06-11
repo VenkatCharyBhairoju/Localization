@@ -1,0 +1,17 @@
+﻿@page
+@using Microsoft.Extensions.Localization
+@model IndexModel
+@inject IStringLocalizer<IndexModel> Localizer
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Localizer["Hello world!"]</title>
+</head>
+<body>
+    <h1>@Localizer["Hello world!"]</h1>
+    <p>@Localizer["Welcome"] to our website!</p>
+    <p>Current Culture: @Model.CurrentCulture</p>
+    <p>Current UI Culture: @Model.CurrentUICulture</p>
+</body>
+</html>
