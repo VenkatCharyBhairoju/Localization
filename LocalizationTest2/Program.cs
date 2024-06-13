@@ -21,6 +21,8 @@ builder.Services.AddRazorPages();
 //    options.ResourcesPath = "Localization";
 //});
 
+builder.Services.AddPortableObjectLocalization();
+
 // Register the custom provider with the absolute path to PO files
 var absolutePath = Path.Combine("C:", "LocalizationFiles");
 builder.Services.AddSingleton<ILocalizationFileLocationProvider>(serviceProvider =>
@@ -28,8 +30,6 @@ builder.Services.AddSingleton<ILocalizationFileLocationProvider>(serviceProvider
     var logger = serviceProvider.GetRequiredService<ILogger<CustomAbsolutePathPoFileLocationProvider>>();
     return new CustomAbsolutePathPoFileLocationProvider(absolutePath, logger);
 });
-
-builder.Services.AddPortableObjectLocalization();
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
